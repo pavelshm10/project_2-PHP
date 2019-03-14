@@ -1,0 +1,45 @@
+<?php
+    session_start();
+    if(isset($_SESSION["username"])) {
+        $username = $_SESSION["username"];
+    }
+    else {
+        $username = null;
+    }
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <title>You-Tube Play List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="http://localhost/Play_List/css/styles.css">
+    <script src="http://localhost/Play_List/js/index.js"></script>
+   
+    </head>
+    <body onload="getVideos()">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-12 col-sm-6 col-md-9 col-lg-12">
+        <button id="logout"><a id="white" href="http://localhost/Play_List/php/API.php?command=logout"><strong>LOG-OUT</strong></a></button>
+      
+  
+            <?php 
+            echo "<span><strong>Hello, $username  </strong></span><br>";
+            ?>    
+    </div>     
+          
+        <label id="search">Search in your play list:</label><input id="search_line"><button class="search" onclick="search()"><strong>Search</strong></button><br><br>
+        <?php echo "<button id='add'><a href='http://localhost/Play_List/html/Add.php?username=$username'><strong>Add New Video</strong></a></button><br>";
+        ?>
+        <table id="tableVideos" width="100%" border="0" cellspacing="5" cellpadding="5"  class="table table-bordered">
+        </table>
+    </div>
+    </div>
+    </body>
+</html>

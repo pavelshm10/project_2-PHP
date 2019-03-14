@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Add</title>
+        <!-- Bootstrap CSS: -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://localhost/Play_List/css/styles.css">
+        <script src="http://localhost/Play_List/js/index.js"></script>
+    </head>
+    <body onload="getCategory(2)">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-12 col-sm-6 col-md-9 col-lg-12"> 
+        <button id="logout"><a id="white" href='http://localhost/Play_List/php/API.php?command=logout'><strong>LOG-OUT</strong></a></button><br><br>
+        <h1><strong> Please fill the information for the video you want to add</strong></h1>
+        <?php
+        $username=$_GET["username"];
+        ?>
+        <br>
+        <form class="form" action="http://localhost/Play_List/php/API.php" method="POST">
+            
+            <label>Title: </label>
+            <input  type="text" name="title" id="title">
+            <br>
+            <br>
+            <label>Description: </label>
+            <input  type="text" name="description">
+            <br>
+            <br>
+            <label>Link: </label>
+            <input  type="text" name="link" id="link">
+            <br>
+            <br>
+            <label id="cat"> Category name: </label>
+            <select name="category" id="categoryAdd">
+                <option  value="" selected disabled>   
+                </option>
+            </select>
+            <br>
+            <br>
+            <?php
+               echo "<input type='hidden' name='username' value='$username'>"; 
+            ?>
+            <input type='hidden' name='command' value='add'>
+            <button onclick="return addValidation()"><strong>Add</strong></button><br>
+            <a href="http://localhost/Play_List/html/playList.php"><i><strong>Return to your play list...</strong></i></a>
+        </form> 
+    </div>
+    </div>
+    </div> 
+    </body>
+</html>

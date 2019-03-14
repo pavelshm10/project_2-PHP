@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Update</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://localhost/Play_List/css/styles.css">
+        <script src="http://localhost/Play_List/js/index.js"></script>
+    </head>
+    <body onload="getCategory(1)">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-12 col-sm-6 col-md-9 col-lg-12">    
+        <button id="logout"><a id="white" href='http://localhost/Play_List/php/API.php?command=logout'><strong>LOG-OUT</strong></a></button>
+        <h1><strong> Please fill the information you want to update:</strong></h1>
+        <?php
+        $id=$_GET["id"];
+        ?>
+        <br>
+        <form class="form" action="http://localhost/Play_List/php/API.php" method="POST">
+            
+            <label>Title: </label>
+            <input  type="text" name="title" id="title">
+            <br>
+            <br>
+            <label>Description: </label>
+            <input  type="text" name="description" id="songDescription">
+            <br>
+            <br>
+            <label>Category: </label>
+            <select name="categoryName" id="category">
+                <option  value="" selected disabled>   
+                </option>
+            </select>
+            <br>
+            <br>
+            <?php 
+                echo "<input type='hidden' name='id' value=$id>"; 
+            ?>
+            <input type="hidden" name="command" value="update">
+            <button onclick="return updateValidation()"><strong>Update</strong></button><br>
+            <a href="http://localhost/Play_List/html/playList.php"><i><strong>Return to your play list...</strong></i></a>
+        </form>
+    </div>
+    </div>
+    </div>
+    </body>
+</html>
+

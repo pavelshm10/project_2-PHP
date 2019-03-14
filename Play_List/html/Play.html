@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Play</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="http://localhost/Play_List/css/styles.css">
+<script src="http://localhost/Play_List/js/index.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#myModal").modal({backdrop: 'static', keyboard: false},'show') //show modal and prevent from click off modal 
+	});
+</script>
+
+</head>
+<body>
+  
+<!-- Modal -->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            
+        <div class="modal-body">
+            <a href="http://localhost/Play_List/html/playList.php"><img src="http://localhost/Play_List/img/pre.png" height="60" width="60"></a><br>
+            <?php 
+            $video=$_GET["video"];
+            
+            $url=substr($video, 17);
+            echo "<iframe width='700' height='400' src='https://www.youtube.com/embed/$url'          
+            frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope;
+            picture-in-picture' allowfullscreen></iframe>";
+            ?>
+        </div>
+      </div>    
+    </div>
+</div>
+
+</body>
+</html>

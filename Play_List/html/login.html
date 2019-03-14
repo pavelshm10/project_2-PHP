@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+       
+        <title>log-in</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        
+        <link rel="stylesheet" href="http://localhost/Play_List/css/styles.css">
+        <script src="http://localhost/Play_List/js/index.js"></script>
+        <script type="text/javascript">
+                $(document).ready(function(){
+                        $("#myModal1").modal({backdrop: 'static', keyboard: false},'show') //show modal and prevent from click off modal 
+                });
+        </script>  
+    </head>
+    <body>
+    <div id="myModal1" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"> 
+            <div class="modal-header">
+                <a href="http://localhost/Play_List/html/HomePage.php"><img src="http://localhost/Play_List/img/pre.png" height="60" width="60"></a><br>
+            </div>
+            <div class="modal-body">
+                <form action="http://localhost/Play_List/php/API.php" method="POST">
+                    <label for="username">Username: </label>
+                        <input type="text" id="username" name="username" >
+                        <br/>
+                        <br/>
+                        <label for="password">Password: </label>
+                        <input type="text" id="password" name="password" >
+                        <br/>
+                        <br/>
+                        <div align="center">
+                        <strong><input id="login" type="submit" value="Login"></strong>
+                        <input type="hidden" name="command" value="login">
+                        </div>
+                 </form>
+                 <script>
+                if(location.search.indexOf("error=") > 0) {
+                    var error = decodeURI(location.search.split("=")[1]);
+                    alert(error);
+                }
+                </script>  
+            </div>
+            </div>
+        </div>  
+    </div>   
+     
+    </body>
+</html>
